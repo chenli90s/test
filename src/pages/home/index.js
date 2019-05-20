@@ -52,7 +52,7 @@ class Home extends Component {
         return;
       }
       this.setState({ status: resp.data });
-    }, 3000);
+    }, 5000);
   };
 
 

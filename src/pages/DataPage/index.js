@@ -48,7 +48,7 @@ class DataPage extends Component {
 
   downLoad = (value, index, record) => {
     if (record.log) {
-      return null;
+      return record.log;
     }
     return (
       <div className="down">
