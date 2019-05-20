@@ -1,0 +1,29 @@
+
+
+.apps{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.app{
+  width: 18%;
+  text-align: center;
+  img{
+    width: 70px;
+    height: 70px;
+    margin-top: 20px;
+  }
+  margin: 30px auto;
+  h2:hover{
+    color: #1283d5;
+  }
+}
+
+.app:hover{
+  background-color: rgba(221, 221, 221, 0.42);
+  cursor: pointer;
+}
+
+.running{
+  color: #ff3000;
+}
