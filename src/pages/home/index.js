@@ -29,12 +29,12 @@ class Home extends Component {
   };
 
   componentWillMount = async () => {
-    // const res = await http.get('/spiders');
-    // if (res.code === -1) {
-    //   // this.props.history.push('/login');
-    //   return;
-    // }
-    // this.setState({ status: res.data });
+    const res = await http.get('/spiders');
+    if (res.code === -1) {
+      // this.props.history.push('/login');
+      return;
+    }
+    this.setState({ status: res.data });
     // console.log(res);
   };
 
