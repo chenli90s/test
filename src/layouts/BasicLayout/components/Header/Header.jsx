@@ -49,12 +49,12 @@ export default class Header extends Component {
                   {/*设置*/}
                 {/*</Link>*/}
               {/*</li>*/}
-              <li className="user-profile-menu-item">
-                <Link to="/account/login">
-                  <Icon type="upload" size="small" />
-                  退出
-                </Link>
-              </li>
+              {/*<li className="user-profile-menu-item">*/}
+                {/*<Link to="/account/login">*/}
+                  {/*<Icon type="upload" size="small" />*/}
+                  {/*退出*/}
+                {/*</Link>*/}
+              {/*</li>*/}
             </ul>
           </Balloon>
         </div>
