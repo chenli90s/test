@@ -26,7 +26,8 @@ axios.interceptors.response.use(
       // window.location = `http://${window.location.host}/#/login`;
       return Promise.resolve(response.data);
     }
-    return Promise.reject(response);
+    response.data.data = [];
+    return Promise.reject(response.data);
   },
   (error) => {
     // const status = error.response.status;
