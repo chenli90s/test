@@ -19,8 +19,10 @@ class UserLogin extends Component {
     super(props);
     this.state = {
       value: {
-        username: 'admin',
-        password: 'superuser',
+        // username: 'admin',
+        username: '',
+        // password: 'superuser',
+        password: '',
         checkbox: false,
       },
     };
