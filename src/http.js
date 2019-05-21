@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // const base = 'http://localhost:8000';
-const baseURL = 'http://localhost:8000/api';
-// const baseURL = `http://${window.location.host}/api`;
+// const baseURL = 'http://localhost:8000/api';
+const baseURL = `http://${window.location.host}/api`;
 
 axios.defaults.timeout = 10000;
 
