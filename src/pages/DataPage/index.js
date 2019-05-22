@@ -23,12 +23,14 @@ class DataPage extends Component {
 
   componentDidMount = async () => {
     const resp = await http.get('/datas', { name: this.props.match.params.name });
-    if (resp.code === -1) {
+    if (resp && resp.code === -1) {
       this.props.history.push('/account/login');
       return;
     }
     console.log(resp);
-    this.setState({ datas: resp.data });
+    if (resp) {
+      this.setState({ datas: resp.data });
+    }
   };
 
   status = (value) => {

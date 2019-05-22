@@ -30,23 +30,26 @@ class Home extends Component {
 
   componentWillMount = async () => {
     const res = await http.get('/spiders');
-    if (res.code === -1) {
+    if (res && res.code === -1) {
       // this.props.history.push('/login');
       return;
     }
-    this.setState({ status: res.data });
+    if (res) {
+      this.setState({ status: res.data });
+    }
+
     // console.log(res);
   };
 
   componentDidMount = async () => {
     let resp = await http.get('/spiders');
-    if (resp.code === -1) {
+    if (resp && resp.code === -1) {
       this.props.history.push('/account/login');
       return;
     }
     this.c = setInterval(async () => {
       resp = await http.get('/spiders');
-      if (resp.code === -1) {
+      if (resp && resp.code === -1) {
         this.props.history.push('/account/login');
         clearInterval(this.c);
         return;
