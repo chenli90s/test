@@ -8,16 +8,7 @@ import IceLabel from '@icedesign/label';
 class DataPage extends Component {
   state = {
     datas: [
-      {
-        name: 'dadsa.xls',
-        time: '2012-02-12 12:20',
-        log: 'sasa',
-      },
-      {
-        name: 'qzxcr.xls',
-        time: '2012-06-11 12:20',
-        log: '',
-      },
+
     ],
   }
 
