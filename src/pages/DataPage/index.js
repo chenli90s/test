@@ -62,6 +62,9 @@ class DataPage extends Component {
     );
   };
 
+  timeC = (value, index, record) => {
+    return record.name.split('_')[1];
+  };
 
   render() {
     return (
@@ -75,7 +78,7 @@ class DataPage extends Component {
         </Button>
         <Table dataSource={this.state.datas}>
           <Table.Column title="名称" dataIndex="name" />
-          <Table.Column title="时间" dataIndex="time" />
+          <Table.Column title="时间" dataIndex="time" cell={this.timeC} />
           <Table.Column title="状态" dataIndex="log" cell={this.status} />
           <Table.Column title="操作" dataIndex="log" cell={this.downLoad} />
         </Table>
