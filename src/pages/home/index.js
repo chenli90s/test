@@ -54,7 +54,9 @@ class Home extends Component {
         clearInterval(this.c);
         return;
       }
-      this.setState({ status: resp.data });
+      if(resp){
+        this.setState({ status: resp.data });
+      }
     }, 5000);
   };
 
@@ -93,7 +95,7 @@ class Home extends Component {
                   >{name}
                   </Button>}
                     closable={false}
-                  >导出数据
+                  >查看数据
                   </Balloon>
                 </div>
               );

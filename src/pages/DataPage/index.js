@@ -43,6 +43,7 @@ class DataPage extends Component {
     if (record.log) {
       return record.log;
     }
+    const name = this.props.match.params.name;
     return (
       <div className="down">
         <Button type="secondary"
@@ -51,6 +52,12 @@ class DataPage extends Component {
           }}
         >下载
         </Button>
+        {name === 'maxmara' && <Button type="secondary"
+          onClick={() => {
+                                     window.open(`${http.baseURL}/static/cn_${record.name}.xls`);
+                                   }}
+        >中文下载
+                               </Button>}
       </div>
     );
   };
