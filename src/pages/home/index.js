@@ -86,7 +86,7 @@ class Home extends Component {
                                                             status[name] = true;
                                                             this.setState({ status });
                                                           }}
-                  ><Icon type="download" />启动
+                  ><Icon type="download" />启动爬虫
                   </Button> : <span className="running"><Icon type="loading" />爬取中...</span>}
                   </h3>
                   <Balloon trigger={<Button onClick={() => {
