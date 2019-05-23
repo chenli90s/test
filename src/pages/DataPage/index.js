@@ -66,6 +66,12 @@ class DataPage extends Component {
   render() {
     return (
       <div className="data">
+        <Button type="primary"
+          onClick={() => {
+                  this.props.history.push('/dashboard');
+                }}
+        >返回
+        </Button>
         <Table dataSource={this.state.datas}>
           <Table.Column title="名称" dataIndex="name" />
           <Table.Column title="时间" dataIndex="time" />
