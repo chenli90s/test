@@ -67,6 +67,7 @@ class DataPage extends Component {
     return (
       <div className="data">
         <Button type="primary"
+          style={{ marginBottom: '20px' }}
           onClick={() => {
                   this.props.history.push('/dashboard');
                 }}
