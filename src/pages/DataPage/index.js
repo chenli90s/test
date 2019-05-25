@@ -66,17 +66,22 @@ class DataPage extends Component {
     return record.name.split('_')[1];
   };
 
-  del = async (value, index, record) => {
-    let resp = await http.get('/del', { name: value });
-    resp = await http.get('/datas', { name: this.props.match.params.name });
-    if (resp && resp.code === -1) {
-      this.props.history.push('/account/login');
-      return;
-    }
-    console.log(resp);
-    if (resp) {
-      this.setState({ datas: resp.data });
-    }
+  del = (value, index, record) => {
+    return (<Button type="danger"
+      onClick={async () => {
+                      let resp = await http.get('/del', { name: value });
+                      resp = await http.get('/datas', { name: this.props.match.params.name });
+                      if (resp && resp.code === -1) {
+                        this.props.history.push('/account/login');
+                        return;
+                      }
+                      console.log(resp);
+                      if (resp) {
+                        this.setState({ datas: resp.data });
+                      }
+                    }}
+    >中文下载
+    </Button>);
   };
 
   render() {
