@@ -67,7 +67,8 @@ class DataPage extends Component {
   };
 
   del = (value, index, record) => {
-    return (<Button type="danger"
+    return (<Button type="primary"
+      warning
       onClick={async () => {
                       let resp = await http.get('/del', { name: value });
                       resp = await http.get('/datas', { name: this.props.match.params.name });
@@ -80,7 +81,7 @@ class DataPage extends Component {
                         this.setState({ datas: resp.data });
                       }
                     }}
-    >中文下载
+    >删除
     </Button>);
   };
 
