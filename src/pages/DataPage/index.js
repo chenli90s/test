@@ -66,6 +66,19 @@ class DataPage extends Component {
     return record.name.split('_')[1];
   };
 
+  del = async (value, index, record) => {
+    let resp = await http.get('/del', { name: value });
+    resp = await http.get('/datas', { name: this.props.match.params.name });
+    if (resp && resp.code === -1) {
+      this.props.history.push('/account/login');
+      return;
+    }
+    console.log(resp);
+    if (resp) {
+      this.setState({ datas: resp.data });
+    }
+  };
+
   render() {
     return (
       <div className="data">
@@ -81,6 +94,7 @@ class DataPage extends Component {
           <Table.Column title="时间" dataIndex="time" cell={this.timeC} />
           <Table.Column title="状态" dataIndex="log" cell={this.status} />
           <Table.Column title="操作" dataIndex="log" cell={this.downLoad} />
+          <Table.Column title="删除" dataIndex="name" cell={this.del} />
         </Table>
       </div>
     );
