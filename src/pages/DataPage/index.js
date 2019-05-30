@@ -63,7 +63,7 @@ class DataPage extends Component {
   };
 
   timeC = (value, index, record) => {
-    return record.name.split('_')[1];
+    return record.time;
   };
 
   del = (value, index, record) => {
