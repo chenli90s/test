@@ -54,7 +54,7 @@ class Home extends Component {
         clearInterval(this.c);
         return;
       }
-      if(resp){
+      if (resp) {
         this.setState({ status: resp.data });
       }
     }, 5000);
@@ -87,7 +87,20 @@ class Home extends Component {
                                                             this.setState({ status });
                                                           }}
                   ><Icon type="download" />启动爬虫
-                  </Button> : <span className="running"><Icon type="loading" />爬取中...</span>}
+                  </Button> : <div className="runs">
+                                                    <span className="running"><Icon type="loading" />爬取中...</span>
+                    <Button size="small"
+                            type="normal"
+                            warning={true}
+                            onClick={async () => {
+                              await http.get('/start', { name });
+                              const status = this.state.status;
+                              status[name] = true;
+                              this.setState({ status });
+                            }}
+                    ><Icon type="refresh" />重新启动
+                    </Button>
+                                                              </div>}
                   </h3>
                   <Balloon trigger={<Button onClick={() => {
                     this.props.history.push(`/data/${name}`);

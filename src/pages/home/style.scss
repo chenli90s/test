@@ -30,6 +30,12 @@
   cursor: pointer;
 }
 
+.runs{
+  display: flex;
+  flex-direction: column;
+  margin: 0 30%;
+}
+
 .running{
   color: #ff3000;
 }
