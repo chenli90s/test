@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // const base = 'http://localhost:8000';
-// const baseURL = 'http://localhost:8000/api';
-const baseURL = `http://${window.location.host}/api`;
+const baseURL = 'http://118.25.185.130/api';
+// const baseURL = `http://${window.location.host}/api`;
 
 axios.defaults.timeout = 10000;
 
@@ -34,11 +34,12 @@ axios.interceptors.response.use(
   }
 );
 
+const token =  localStorage.getItem('token')
 
 const Http = {
   // host: base,
   baseURL,
-  token: '',
+  token,
   header: {
     'Content-Type': 'application/json; charset=utf-8',
   },

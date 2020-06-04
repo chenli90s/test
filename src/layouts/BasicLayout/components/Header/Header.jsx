@@ -4,9 +4,12 @@ import { Balloon, Icon } from '@alifd/next';
 import IceImg from '@icedesign/img';
 import Logo from '../Logo';
 import './Header.scss';
+import http from '../../../../http';
 
 @withRouter
 export default class Header extends Component {
+
+
   render() {
     return (
       <div className="header-container">
@@ -49,12 +52,16 @@ export default class Header extends Component {
                   {/*设置*/}
                 {/*</Link>*/}
               {/*</li>*/}
-              {/*<li className="user-profile-menu-item">*/}
-                {/*<Link to="/account/login">*/}
-                  {/*<Icon type="upload" size="small" />*/}
-                  {/*退出*/}
-                {/*</Link>*/}
-              {/*</li>*/}
+              <li className="user-profile-menu-item">
+                <a onClick={()=>{
+                  this.props.history.push('/account/login')
+                  localStorage.setItem('token', '')
+                  http.token =  ''
+                }}>
+                  <Icon type="upload" size="small" />
+                  退出
+                </a>
+              </li>
             </ul>
           </Balloon>
         </div>

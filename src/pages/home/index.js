@@ -9,14 +9,14 @@ class Home extends Component {
     gucci: 'https://res.gucci.cn/images/icon/GG_Icon_iOS_288.png',
     chloe: 'https://media.yoox.biz/ytos/resources/CHLOE/favicon/apple-icon-precomposed.png',
     celine: 'https://www.celine.com/on/demandware.static/Sites-Celine_NONTRANSAC_V2-Site/-/default/dwe09013be/images/favicon.ico',
-    miumiu: 'https://www.miumiu.com/etc/designs/miumiu/assets/favicon.ico',
+    miumiu: 'https://www.miumiu.com/etc.clientlibs/miumiu/clientlibs/miumiu/clientlib-all/resources/favicon.ico',
     loewe: 'https://www.loewe.com/on/demandware.static/Sites-LOE_CHN-Site/-/default/dw6a6be4cd/images/favicon.ico',
     bottegaveneta: 'https://store.bottegaveneta.cn/favicon.ico',
     versace: 'https://www.versace.cn/on/demandware.static/Sites-CN-Site/-/default/dw01f1cdf0/images/favicon-152.png',
     prada: 'https://www.prada.com/etc/designs/prada_china/favicon.ico',
     stuartweitzman: 'https://www.stuartweitzman.com/favicon.ico',
-    fendi: 'https://www.fendi.cn/favicon.ico',
-    valentino: 'https://www.valentino.cn/ytos/resources/VALENTINO/images/favicon/android-icon-192x192.png',
+    fendi: 'https://www.fendi.cn/dist/favicon.ico',
+    valentino: 'https://bztic-casaba-creator.oss-cn-shanghai.aliyuncs.com/c5150f3b8de7f0a10313cf6e323e42db/1572616883167mig.ico',
     balenciaga: 'https://www.balenciaga.com/ytos/resources/BALENCIAGA/images/touch-icons/apple-touch-icon-152x152-precomposed.png',
     ysl: 'https://www.ysl.com/favicon.ico',
     burberry: 'https://cn.burberry.com/images/favicons/180x180.png',
@@ -76,28 +76,33 @@ class Home extends Component {
               return (
                 <div className="app"
                   key={index}
+                  onClick={() => {
+                     this.props.history.push(`/data/${name}`);
+                   }}
                 >
                   <img src={this.icons[name]} alt="" />
                   <h3>{!this.state.status[name] ? <Button size="small"
                     type="secondary"
                     onClick={async () => {
-                                                            await http.get('/start', { name });
-                                                            const status = this.state.status;
-                                                            status[name] = true;
-                                                            this.setState({ status });
-                                                          }}
+                                await http.get('/start', { name });
+                                const status = this.state.status;
+                                status[name] = true;
+                                this.setState({ status });
+                              }}
                   ><Icon type="download" />启动爬虫
                   </Button> : <div className="runs">
-                                                    <span className="running"><Icon type="loading" />爬取中...</span>
-                    <Button size="small"
-                            type="normal"
-                            warning={true}
-                            onClick={async () => {
-                              await http.get('/start', { name });
-                              const status = this.state.status;
-                              status[name] = true;
-                              this.setState({ status });
-                            }}
+                                                    <span className="running">
+                      <Icon type="loading" />爬取中...
+                    </span>
+                                                    <Button size="small"
+                      type="normal"
+                      warning
+                      onClick={async () => {
+                                await http.get('/start', { name });
+                                const status = this.state.status;
+                                status[name] = true;
+                                this.setState({ status });
+                              }}
                     ><Icon type="refresh" />重新启动
                     </Button>
                                                               </div>}

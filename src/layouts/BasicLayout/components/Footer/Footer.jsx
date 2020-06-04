@@ -25,8 +25,7 @@ export default () => {
           textAlign: 'right',
         }}
       >
-
-        <br />© 2019
+        <br />© 2020
       </div>
     </div>
   );

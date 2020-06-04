@@ -44,7 +44,10 @@ class UserLogin extends Component {
       http.token = resp.token;
       console.log(resp);
       Message.success('登录成功');
+      localStorage.setItem('token', resp.token);
       this.props.history.push('/');
+    } else {
+      Message.error('用户名密码不正确');
     }
   };
 
