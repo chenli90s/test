@@ -83,11 +83,12 @@ class Home extends Component {
                   <img src={this.icons[name]} alt="" />
                   <h3>{!this.state.status[name] ? <Button size="small"
                     type="secondary"
-                    onClick={async () => {
+                    onClick={async (e) => {
                                 await http.get('/start', { name });
                                 const status = this.state.status;
                                 status[name] = true;
                                 this.setState({ status });
+                                e.stopPropagation();
                               }}
                   ><Icon type="download" />启动爬虫
                   </Button> : <div className="runs">
