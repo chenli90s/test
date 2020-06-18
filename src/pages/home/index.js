@@ -28,7 +28,7 @@ class Home extends Component {
   };
 
   state = {
-    status: {},
+    spiders: [],
   };
 
   componentWillMount = async () => {
@@ -38,7 +38,7 @@ class Home extends Component {
       return;
     }
     if (res) {
-      this.setState({ status: res.data });
+      this.setState({ spiders: res.data });
     }
 
     // console.log(res);
@@ -58,7 +58,7 @@ class Home extends Component {
         return;
       }
       if (resp) {
-        this.setState({ status: resp.data });
+        this.setState({ spiders: resp.data });
       }
     }, 5000);
   };
@@ -66,29 +66,30 @@ class Home extends Component {
 
   render() {
     // const names = Object.keys(this.icons);
-    let keys = [];
-    if (this.state.status) {
-      keys = Object.keys(this.state.status);
-    }
-
+    // let keys = [];
+    // if (this.state.status) {
+    //   keys = Object.keys(this.state.status);
+    // }
+    // console.log(keys)
+    const  {spiders} = this.state
     return (
       <IceContainer style={{ marginTop: 40 }}>
         <div className="apps">
           {
-            keys.map((name, index) => {
+            spiders.map(({name, status}, index) => {
               return (
                 <div className="app"
                   key={index}
                 >
                   <img src={this.icons[name]} alt="" />
-                  <h3>{!this.state.status[name] ? <Button size="small"
+                  <h3>{!status ? <Button size="small"
                     type="secondary"
                     onClick={async (e) => {
                                 await http.get('/start', { name });
-                                const status = this.state.status;
-                                status[name] = true;
-                                this.setState({ status });
-                                return false;
+                                let resp = await http.get('/spiders');
+                                if (resp) {
+                                  this.setState({ spiders: resp.data });
+                                }
                               }}
                   ><Icon type="download" />启动爬虫
                   </Button> : <div className="runs">
@@ -100,9 +101,10 @@ class Home extends Component {
                       warning
                       onClick={async () => {
                                 await http.get('/start', { name });
-                                const status = this.state.status;
-                                status[name] = true;
-                                this.setState({ status });
+                                let resp = await http.get('/spiders');
+                                if (resp) {
+                                  this.setState({ spiders: resp.data });
+                                }
                               }}
                     ><Icon type="refresh" />重新启动
                     </Button>
