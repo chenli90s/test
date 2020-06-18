@@ -76,9 +76,6 @@ class Home extends Component {
               return (
                 <div className="app"
                   key={index}
-                  onClick={() => {
-                     this.props.history.push(`/data/${name}`);
-                   }}
                 >
                   <img src={this.icons[name]} alt="" />
                   <h3>{!this.state.status[name] ? <Button size="small"
@@ -88,7 +85,7 @@ class Home extends Component {
                                 const status = this.state.status;
                                 status[name] = true;
                                 this.setState({ status });
-                                e.stopPropagation();
+                                return false;
                               }}
                   ><Icon type="download" />启动爬虫
                   </Button> : <div className="runs">
