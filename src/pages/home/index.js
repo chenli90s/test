@@ -3,6 +3,9 @@ import IceContainer from '@icedesign/container';
 import { Button, Icon, Balloon } from '@alifd/next';
 import './style.scss';
 import http from '../../http';
+import YSL from '../../assert/ysl.jpeg';
+import rog from '../../assert/rog.jpg';
+import bot from '../../assert/bot.jpg';
 
 class Home extends Component {
   icons = {
@@ -11,16 +14,16 @@ class Home extends Component {
     celine: 'https://www.celine.com/on/demandware.static/Sites-Celine_NONTRANSAC_V2-Site/-/default/dwe09013be/images/favicon.ico',
     miumiu: 'https://www.miumiu.com/etc.clientlibs/miumiu/clientlibs/miumiu/clientlib-all/resources/favicon.ico',
     loewe: 'https://www.loewe.com/on/demandware.static/Sites-LOE_CHN-Site/-/default/dw6a6be4cd/images/favicon.ico',
-    bottegaveneta: 'https://store.bottegaveneta.cn/favicon.ico',
+    bottegaveneta: bot,
     versace: 'https://www.versace.cn/on/demandware.static/Sites-CN-Site/-/default/dw01f1cdf0/images/favicon-152.png',
     prada: 'https://www.prada.com/etc/designs/prada_china/favicon.ico',
     stuartweitzman: 'https://www.stuartweitzman.com/favicon.ico',
     fendi: 'https://www.fendi.cn/dist/favicon.ico',
     valentino: 'https://bztic-casaba-creator.oss-cn-shanghai.aliyuncs.com/c5150f3b8de7f0a10313cf6e323e42db/1572616883167mig.ico',
     balenciaga: 'https://www.balenciaga.com/ytos/resources/BALENCIAGA/images/touch-icons/apple-touch-icon-152x152-precomposed.png',
-    ysl: 'https://www.ysl.com/favicon.ico',
+    ysl: YSL,
     burberry: 'https://cn.burberry.com/images/favicons/180x180.png',
-    rogervivier: 'http://www.rogervivier.cn/etc/designs/rogervivier/img/favicon/favicon-196x196.png',
+    rogervivier: rog,
     maxmara: 'https://dx0woejilafh2.cloudfront.net/docroot/maxmara/2019.503.1214-3/public/favicons/apple-touch-icon.png',
   };
 
