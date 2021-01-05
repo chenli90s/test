@@ -33,7 +33,7 @@
     "@icedesign/label": "^1.0.2",
     "@icedesign/layout": "^1.x",
     "@icedesign/theme": "^1.x",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bizcharts": "^3.2.2",
     "classnames": "^2.2.5",
     "moment": "^2.23.0",
